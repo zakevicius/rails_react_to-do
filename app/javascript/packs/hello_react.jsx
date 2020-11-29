@@ -2,25 +2,33 @@
 // like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
 // of the page.
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
+import React from "react"
+import ReactDOM from "react-dom"
+import { Button, DatePicker, Switch, TimePicker, version } from "antd";
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
-
-Hello.defaultProps = {
-  name: 'David'
+const HelloReact = (props) => {
+  return (
+    <React.Fragment>
+      <h1>Ant Design version: {version}</h1>
+      <div>
+        <DatePicker />
+        <Button type="primary" style={{ marginLeft: 8 }}>
+          Primary Button
+        </Button>
+      </div>
+      <div style={{ marginTop: 16 }}>
+        <TimePicker size="large" />
+        <Switch checkedChildren={ props.checked } unCheckedChildren={ props.unchecked } style={{ marginLeft: 8 }} />
+      </div>
+    </React.Fragment>
+  )
 }
 
-Hello.propTypes = {
-  name: PropTypes.string
-}
+export default HelloReact
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <HelloReact />,
     document.body.appendChild(document.createElement('div')),
   )
 })
