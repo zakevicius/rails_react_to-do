@@ -1,0 +1,9 @@
+nav {
+    display: flex;
+    width: 100vw;
+
+    .container {
+        width: inherit;
+        display: flex;
+    }
+}
